@@ -1,7 +1,7 @@
 import pymssql
 
 class Wrapper:
-    def __init__(self, server="5.172.64.20\SQLEXPRESS", db="CRD2122", usr="CRD2122", psw="xxx123##"):
+    def __init__(self, server="192.168.40.16\SQLEXPRESS", db="CRD2122", usr="CRD2122", psw="xxx123##"):
         self._server = server
         self._db = db
         self._usr = usr
