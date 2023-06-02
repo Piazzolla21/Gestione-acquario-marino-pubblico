@@ -1,0 +1,20 @@
+<table id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>UnitaDiMisura</th>
+            <th>DataOra</th>
+            <th>IDVasca</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of po">
+            <td>{{x.ID}}</td>
+            <td>{{x.Nome}}</td>
+            <td>{{x.UnitaDiMisura}}</td>
+            <td>{{x.DataOra}}</td>
+            <td>{{x.IDVasca}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,7 +1,8 @@
 import pymssql
 
 class Wrapper:
-    def __init__(self, server="192.168.40.16\SQLEXPRESS", db="CRD2122", usr="CRD2122", psw="xxx123##"):
+    #192.168.40.16
+    def __init__(self, server="5.172.64.20\SQLEXPRESS", db="CRD2122", usr="CRD2122", psw="xxx123##"):
         self._server = server
         self._db = db
         self._usr = usr
@@ -34,10 +35,25 @@ class Wrapper:
                 query = "SELECT * FROM V_Vasca"
             elif tabella == "V_Sensore":
                 query = "SELECT * FROM V_Sensore"
+                cur.execute(query)
+                res = cur.fetchall()
+                for x in res:
+                    x['Max'] = int(x['Max'])
+                    x['Min'] = int(x['Min'])
+                    x['Valore'] = int(x['Valore'])
+                print(res)
+                return res
             elif tabella == "V_ParametriOperativi":
                 query = "SELECT * FROM V_ParametriOperativi"
+                cur.execute(query)
+                res = cur.fetchall()
+                for x in res:
+                    x['DataOra'] = str(x['DataOra'])
+                print(res)
+                return res
             cur.execute(query)
             res = cur.fetchall()
+            #print(res)
             return res
         except Exception as e:
             print("Errore Durante L'Operazione")
@@ -94,9 +110,11 @@ class Wrapper:
             elif tabella == "V_ParametriOperativi":
                 query = "DELETE FROM V_ParametriOperativi WHERE ID = %d"
             cur.execute(query, id)
-            con.commit()
+            #con.commit()
             self.disconnect(con)
+            return {"esito": "Ok"}
         except Exception as e:
             print("Errore Durante L'Operazione")
             print(e)
             self.disconnect(con)
+            return {"esito": "Ko"}

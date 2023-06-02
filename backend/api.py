@@ -24,6 +24,12 @@ class Page():
         else:
             res =  {"errore" : "tabella non valida"}
         return res
+    
+    @cherrypy.expose
+    @cherrypy.tools.json_out()
+    def DELETE(self,id,tabella):
+        res = self.wrp.canc(id,tabella)
+        return res
         
     
     

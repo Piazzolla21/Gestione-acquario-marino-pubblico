@@ -1,0 +1,22 @@
+<table id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>IDSale</th>
+            <th>IDAcquario</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of vasce">
+            <td>{{x.ID}}</td>
+            <td>{{x.IDSale}}</td>
+            <td>
+                {{x.IDAcquario}}
+            </td>
+            <td>
+                <a (click)="edita()" href="Vasca">edita   </a>
+                <a (click)="cancella(x.ID)" style="text-decoration: underline; text-decoration-color: blue; color: blue;" href="Vasca">cancella</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

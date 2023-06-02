@@ -1,0 +1,24 @@
+<table id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Min</th>
+            <th>Max</th>
+            <th>UnitaDiMisura</th>
+            <th>Valore</th>
+            <th>Nome</th>
+            <th>IDVasca</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let x of sensori">
+            <td>{{x.ID}}</td>
+            <td>{{x.Min}}</td>
+            <td>{{x.Max}}</td>
+            <td>{{x.UnitaDiMisura}}</td>
+            <td>{{x.Valore}}</td>
+            <td>{{x.Nome}}</td>
+            <td>{{x.IDVasca}}</td>
+        </tr>
+    </tbody>
+</table>
