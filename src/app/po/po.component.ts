@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./po.component.css']
 })
 export class PoComponent {
+  ed : boolean = false;
+  id: number = 0 
   po: {'ID': number, 'Nome' : string, 'UnitaDiMisura' : string, 'DataOra' : string, 'IDVasca' : number}[] = [];
   constructor(private http:HttpClient) {
     http.get<any[]>('http://127.0.0.1:8080/V_ParametriOperativi').subscribe((responce) => {
@@ -23,6 +25,9 @@ export class PoComponent {
         console.log(responce)
       }
     )
+  }
+  edita() { 
+    this.ed = !this.ed
   }
 
 }
