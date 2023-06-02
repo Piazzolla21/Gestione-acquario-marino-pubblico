@@ -8,6 +8,7 @@
             <th>Valore</th>
             <th>Nome</th>
             <th>IDVasca</th>
+            <th>Operazioni</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +20,10 @@
             <td>{{x.Valore}}</td>
             <td>{{x.Nome}}</td>
             <td>{{x.IDVasca}}</td>
+            <td>
+                <a (click)="cancella(x.ID)" style="text-decoration: underline; text-decoration-color: blue; color: blue;" href="Vasca">cancella</a>
+            </td>
+            
         </tr>
     </tbody>
 </table>

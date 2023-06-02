@@ -15,4 +15,13 @@ export class SensoriComponent {
       });
     })
   }
+  cancella (id : number) {
+    console.log('cancella')
+    let url : string = 'http://127.0.0.1:8080/' + id.toString() + '/V_Sensore'
+    this.http.delete(url).subscribe(
+      (responce) =>{
+        console.log(responce)
+      }
+    )
+  }
 }

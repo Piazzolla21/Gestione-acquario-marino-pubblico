@@ -6,6 +6,7 @@
             <th>UnitaDiMisura</th>
             <th>DataOra</th>
             <th>IDVasca</th>
+            <th>Operazioni</th>
         </tr>
     </thead>
     <tbody>
@@ -14,7 +15,11 @@
             <td>{{x.Nome}}</td>
             <td>{{x.UnitaDiMisura}}</td>
             <td>{{x.DataOra}}</td>
-            <td>{{x.IDVasca}}</td>
+            <td>
+                {{x.IDVasca}}
+            </td>
+            <td><a (click)="cancella(x.ID)" style="text-decoration: underline; text-decoration-color: blue; color: blue;" href="Vasca">cancella</a></td>
+            
         </tr>
     </tbody>
 </table>
