@@ -1,1 +1,166 @@
-<h1>Ciao</h1>
+<form (submit)="insert()">
+    <div style="text-align: center; padding-top: 2vh;">
+        <mat-form-field>
+            <mat-label>Tabella</mat-label>
+            <mat-select [(ngModel)]="tabella" name="zcod">
+                <mat-option *ngFor="let x of tabelle" (click)="cambia(tabella)" [value]="x">
+                    {{x}}
+                </mat-option>
+            </mat-select>
+            <mat-error>Inserire cognome (min. 4 lettere)</mat-error>
+        </mat-form-field>
+    </div>
+    <div [hidden]="!par" style="text-align: center;">
+        
+        <mat-form-field>
+            <mat-label>nome Parametro opertivo</mat-label>
+            <input
+            matInput
+            type="text"
+            name="nomePar"
+            required
+            [(ngModel)]=nomePar
+            style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>unita di misura parametro opertivo</mat-label>
+            <input
+            matInput
+            type="text"
+            name="unitaDiMisuraPar"
+            required
+            [(ngModel)]=unitaDiMisuraPar
+            style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>data Ora Parametro </mat-label>
+            <input
+            matInput
+            type="text"
+            name="dataOraPar"
+            required
+            [(ngModel)]=dataOraPar
+            style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>idVascaPar</mat-label>
+            <input
+            matInput
+            type="number"
+            name="idVascaPar"
+            required
+            [(ngModel)]=idVascaPar
+            style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="sumbit">
+            INSERT
+        </button>
+    </div>
+
+
+    <div [hidden]="!vasce" style="text-align: center;">
+        <mat-form-field>
+            <mat-label>id Sala</mat-label>
+            <input
+            matInput
+            type="text"
+            name="idSaleVasca"
+            required
+            [(ngModel)]=idSaleVasca
+            style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>id Acquario</mat-label>
+            <input
+            matInput
+            type="number"
+            name="idAcquarioVasca"
+            required
+            [(ngModel)]=idAcquarioVasca
+            style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="sumbit">
+            INSERT
+        </button>
+    </div>
+
+
+    <div [hidden]="!sens" style="text-align: center;">
+        <mat-form-field>
+            <mat-label>Minimo sensore</mat-label>
+            <input
+            matInput
+            type="number"
+            name="minSensor"
+            required
+            [(ngModel)]=minSensor
+            style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>max Sensore</mat-label>
+            <input
+            matInput
+            type="number"
+            name="maxSensor"
+            required
+            [(ngModel)]=maxSensor
+            style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>unita Di MisuraSensor</mat-label>
+            <input
+            matInput
+            type="text"
+            name="unitaDiMisuraSensor"
+            required
+            [(ngModel)]=unitaDiMisuraSensor
+            style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>nome Sensore</mat-label>
+            <input
+            matInput
+            type="string"
+            name="nomeSensor"
+            required
+            [(ngModel)]=nomeSensor
+            style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>id Vasca Sensore</mat-label>
+            <input
+            matInput
+            type="string"
+            name="idVascaSensor"
+            required
+            [(ngModel)]=idVascaSensor
+            style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>valore Sensore </mat-label>
+            <input
+            matInput
+            type="number"
+            name="valoreSensor"
+            required
+            [(ngModel)]=valoreSensor
+            style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="sumbit">
+            INSERT
+        </button>
+
+    </div>
+</form>

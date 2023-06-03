@@ -13,14 +13,15 @@ class Page():
     @cherrypy.tools.json_out()
     @cherrypy.tools.json_in()
     def POST(self,tabella):
-        data = cherrypy.response.json
+        data = cherrypy.request.json
+        print(data)
         res = {}
         if tabella == "V_ParametriOperativi":
-            res = self.wrp.inserisci(tabella,(data["IDSale"],data["IDAcquario"]))
+            res = self.wrp.insert(tabella,(data["Nome"],data['UnitaDiMisura'],data['DataOra'],data['IDVasca']))
         elif tabella == "V_Sensore":
-            res = self.wrp.inserisci(tabella,(data["IDSale"],data["IDAcquario"]))
+            res = self.wrp.insert(tabella,(data["Min"],data['Max'],data['UnitaDiMisura'],data['Valore'],data['Nome'],data['IDVasca']))
         elif tabella == "V_Vasca":
-            res = self.wrp.inserisci(tabella,(data["IDSale"],data["IDAcquario"]))
+            res = self.wrp.insert(tabella,(data["IDSale"],data["IDAcquario"]))
         else:
             res =  {"errore" : "tabella non valida"}
         return res

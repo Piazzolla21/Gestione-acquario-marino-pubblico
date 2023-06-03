@@ -1,4 +1,4 @@
-<table id="datatable-full" class="table table-striped dt-responsive nowrap w-100">
+<table id="datatable-full" class="table table-striped dt-responsive nowrap w-100" style="text-align: center;">
     <thead>
         <tr>
             <th>ID</th>
@@ -10,39 +10,24 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let x of po" style="height: 3vh; min-height: 40px;">
+        <tr *ngFor="let x of po" style="height: 2vh; min-height: 20px;">
             <td>
-                <p [hidden] = ed >{{x.ID}}</p>
-                <div style="width: 5vw; height: 5vh; ">
-                <mat-form-field [hidden]="!ed" appearance="outline" style="color : black; width: 15vw; height: 2vh; min-height: none"  >
-                    <input
-                    matInput
-                    type="number"
-                    name="id"
-                    required
-                    minlength="4"
-                    placeholder="id"
-                    [(ngModel)]="id" 
-                    style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
-                </mat-form-field>
-            </div>
+                <p>{{x.ID}}</p>
             </td>
             <td>
-                <p [hidden] = ed >{{x.Nome}}</p>
+                <p>{{x.Nome}}</p>
             </td>
             <td>
-                <p [hidden] = ed >{{x.UnitaDiMisura}}</p>
+                <p>{{x.UnitaDiMisura}}</p>
             </td>
             <td>
-                <p [hidden] = ed >{{x.DataOra}}</p>
+                <p>{{x.DataOra}}</p>
             </td>
             <td>
-                <p [hidden] = ed >{{x.IDVasca}}</p>
+                <p>{{x.IDVasca}}</p>
             </td>
             <td>
-                <a (click)="cancella(x.ID)" style="text-decoration: underline; text-decoration-color: blue; color: blue;" href="Vasca">cancella</a>
-            </td>
-            <td>
+                <a (click)="cancella(x.ID)" style="text-decoration: underline; text-decoration-color: blue; color: blue;" href="Vasca">cancella </a>
                 <a (click)="edita()" style="text-decoration: underline; text-decoration-color: blue; color: blue;" >edita</a>
             </td>
             

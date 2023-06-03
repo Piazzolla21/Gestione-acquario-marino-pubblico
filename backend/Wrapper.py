@@ -61,8 +61,9 @@ class Wrapper:
             self.disconnect(con)
    
     #Inserimento di un record nella tabella
-    def insert(self, dati, tabella):
+    def insert(self, tabella, dati):
         con = self.connect()
+        print(dati)
         try:
             cur = con.cursor()
             if tabella == "V_ParametriOperativi":
@@ -73,6 +74,7 @@ class Wrapper:
                 query = "INSERT INTO V_Vasca VALUES (%d, %d)"
             cur.execute(query, dati)
             con.commit()
+            return {'esito': 'OK'}
             print("Operazione Riuscita")
         except Exception as e:
             print("Errore Durante L'Operazione")
