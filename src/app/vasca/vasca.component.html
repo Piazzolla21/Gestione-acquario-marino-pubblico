@@ -10,13 +10,41 @@
     <tbody>
         <tr *ngFor="let x of vasce">
             <td>{{x.ID}}</td>
-            <td>{{x.IDSale}}</td>
             <td>
-                {{x.IDAcquario}}
+                <p [hidden]="!x.nascondi">{{x.IDSale}}</p>
+                <div [hidden]="x.nascondi">
+                    <mat-form-field>
+                        <mat-label>{{x.IDSale}}</mat-label>
+                        <input
+                        matInput
+                        type="number"
+                        name="nomePo"
+                        required
+                        [(ngModel)]=x.IDSale
+                        style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+                    </mat-form-field>
+                </div>
             </td>
             <td>
-                <a (click)="edita()" href="Vasca">edita   </a>
-                <a (click)="cancella(x.ID)" style="text-decoration: underline; text-decoration-color: blue; color: blue;" href="Vasca">cancella</a>
+                <p [hidden]="!x.nascondi">{{x.IDAcquario}}</p>
+                <div [hidden]="x.nascondi">
+                    <mat-form-field>
+                        <mat-label>{{x.IDAcquario}}</mat-label>
+                        <input
+                        matInput
+                        type="number"
+                        name="nomePo"
+                        required
+                        [(ngModel)]=x.IDAcquario
+                        style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+                    </mat-form-field>
+                </div>
+            </td>
+            <td>
+                <a (click)="edita(x.ID)" [hidden]="!x.nascondi" style="text-decoration: underline; text-decoration-color: blue; color: blue;" ><mat-icon>edit</mat-icon></a>
+                <button [hidden]="x.nascondi" mat-raised-button color="primary" (click) = 'mod(x.ID)'>Update</button>
+                <a [hidden]="!x.nascondi" (click)="cancella(x.ID)" style="text-decoration: underline; text-decoration-color: blue; color: blue;" href="Vasca"><mat-icon>delete</mat-icon></a>
+                
             </td>
         </tr>
     </tbody>

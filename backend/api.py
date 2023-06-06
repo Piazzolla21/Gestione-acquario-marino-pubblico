@@ -24,13 +24,29 @@ class Page():
             res = self.wrp.insert(tabella,(data["IDSale"],data["IDAcquario"]))
         else:
             res =  {"errore" : "tabella non valida"}
-        return res
+        return {'esito' : res}
+    
+    @cherrypy.expose
+    @cherrypy.tools.json_out()
+    @cherrypy.tools.json_in()
+    def PUT(self,tabella) : 
+        print('ciaoa')
+        data = cherrypy.request.json
+        if tabella == "V_ParametriOperativi":
+            res = self.wrp.update(tabella,(data["Nome"],data['UnitaDiMisura'],data['DataOra'],data['IDVasca'],data['ID']))
+        elif tabella == "V_Sensore":
+            res = self.wrp.update(tabella,(data["Min"],data['Max'],data['UnitaDiMisura'],data['Valore'],data['Nome'],data['IDVasca'],data['ID']))
+        elif tabella == "V_Vasca":
+            res = self.wrp.update(tabella,(data["IDSale"],data["IDAcquario"],data['ID']))
+        else:
+            res =  {"errore" : "tabella non valida"}
+        return {'esito' : res}
     
     @cherrypy.expose
     @cherrypy.tools.json_out()
     def DELETE(self,id,tabella):
         res = self.wrp.canc(id,tabella)
-        return res
+        return {'esito' : res}
         
     
     

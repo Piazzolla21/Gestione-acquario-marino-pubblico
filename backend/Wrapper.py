@@ -74,31 +74,41 @@ class Wrapper:
                 query = "INSERT INTO V_Vasca VALUES (%d, %d)"
             cur.execute(query, dati)
             con.commit()
-            return {'esito': 'OK'}
+            return 1
             print("Operazione Riuscita")
         except Exception as e:
             print("Errore Durante L'Operazione")
             print(e)
             self.disconnect(con)
+            return 0
     
     #Modifica di un record in base all'id
-    def update(self, dati, tabella):
+    def update(self,tabella, dati ):
         con = self.connect()
         try:
             cur = con.cursor()
             if tabella == "V_Vasca":
                 query = "UPDATE V_Vasca  SET IDSale = %d, IDAcquario = %d WHERE ID = %d"
+                #cur.execute(query, (dati['IDSale'], dati['IDAcquario'], dati['ID']))
+                cur.execute(query, dati)
             elif tabella == "V_Sensore":
-                query = "UPDATE V_Sensore SET Min = %d, Max = %d, UnitàDiMisura = %s, Valore = %d, Nome = %s, IDVasca = %d WHERE ID = %d"
+                query = "UPDATE V_Sensore SET Min = %d, Max = %d, UnitaDiMisura = %s, Valore = %d, Nome = %s, IDVasca = %d WHERE ID = %d"
+                #cur.execute(query, (dati['Min'], dati['Max'], dati['Max'],dati['Valore'],dati['Nome'],dati['IDVasca'],dati['ID']))
+                cur.execute(query, dati)
             elif tabella == "V_ParametriOperativi":
-                query = "UPDATE V_ParametriOperativi SET Nome = %s, UnitàDiMisura = %s, DataOra = %s, IDVasca = %d WHERE ID = %d"
-            cur.execute(query, dati)
+                query = "UPDATE V_ParametriOperativi SET Nome = %s, UnitaDiMisura = %s, DataOra = %s, IDVasca = %d WHERE ID = %d"
+                #cur.execute(query, (dati['Nome'], dati['UnitàDiMisura'], dati['DataOra'],dati['IDVasca'],dati['ID']))
+                cur.execute(query, dati)
+            #cur.execute(query, dati)
+            print('cioao')
             con.commit()
             self.disconnect(con)
+            return 1
         except Exception as e:
             print("Errore Durante L'Operazione")
             print(e)
             self.disconnect(con) 
+            return 0
     
     #Eliminazione di un record in base all'id
     def canc(self, id, tabella):
@@ -114,9 +124,9 @@ class Wrapper:
             cur.execute(query, id)
             #con.commit()
             self.disconnect(con)
-            return {"esito": "Ok"}
+            return 1
         except Exception as e:
             print("Errore Durante L'Operazione")
             print(e)
             self.disconnect(con)
-            return {"esito": "Ko"}
+            return 0

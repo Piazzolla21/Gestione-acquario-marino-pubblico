@@ -15,20 +15,70 @@
                 <p>{{x.ID}}</p>
             </td>
             <td>
-                <p>{{x.Nome}}</p>
+                <p [hidden]="!x.nascondi">{{x.Nome}}</p>
+                <div [hidden]="x.nascondi">
+                    <mat-form-field>
+                        <mat-label>{{x.Nome}}</mat-label>
+                        <input
+                        matInput
+                        type="text"
+                        name="nomePo"
+                        required
+                        [(ngModel)]=x.Nome
+                        style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+                    </mat-form-field>
+                </div>
             </td>
             <td>
-                <p>{{x.UnitaDiMisura}}</p>
+                <p [hidden]="!x.nascondi">{{x.UnitaDiMisura}}</p>
+                <div [hidden]="x.nascondi">
+                    <mat-form-field>
+                        <mat-label>{{x.UnitaDiMisura}}</mat-label>
+                        <input
+                        matInput
+                        type="text"
+                        name="nomePo"
+                        required
+                        [(ngModel)]=x.UnitaDiMisura
+                        style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+                    </mat-form-field>
+                </div>
             </td>
             <td>
-                <p>{{x.DataOra}}</p>
+                <p [hidden]="!x.nascondi">{{x.DataOra}}</p>
+                <div [hidden]="x.nascondi">
+                    <mat-form-field>
+                        <mat-label>{{x.DataOra}}</mat-label>
+                        <input
+                        matInput
+                        type="date"
+                        name="nomePo"
+                        required
+                        [(ngModel)]=x.DataOra
+                        style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+                    </mat-form-field>
+                </div>
             </td>
             <td>
-                <p>{{x.IDVasca}}</p>
+                <p [hidden]="!x.nascondi">{{x.IDVasca}}</p>
+                <div [hidden]="x.nascondi">
+                    <mat-form-field>
+                        <mat-label>{{x.IDVasca}}</mat-label>
+                        <input
+                        matInput
+                        type="number"
+                        name="nomePo"
+                        required
+                        [(ngModel)]=x.IDVasca
+                        style="color : black; font-size: 1.5vh; width: 15vw; height: 2vh; ">
+                    </mat-form-field>
+                </div>
             </td>
             <td>
-                <a (click)="cancella(x.ID)" style="text-decoration: underline; text-decoration-color: blue; color: blue;" href="Vasca">cancella </a>
-                <a (click)="edita()" style="text-decoration: underline; text-decoration-color: blue; color: blue;" >edita</a>
+                <a (click)="edita(x.ID)" [hidden]="!x.nascondi" style="text-decoration: underline; text-decoration-color: blue; color: blue;" ><mat-icon>edit</mat-icon></a>
+                <button [hidden]="x.nascondi" mat-raised-button color="primary" (click) = 'mod(x.ID)'>Update</button>
+                <a [hidden]="!x.nascondi" (click)="cancella(x.ID)" style="text-decoration: underline; text-decoration-color: blue; color: blue;" href="Po"><mat-icon>delete</mat-icon></a>
+                
             </td>
             
         </tr>
